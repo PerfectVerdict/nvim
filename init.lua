@@ -91,31 +91,36 @@ require("lazy").setup({
 	end,
 },
 
+-- {
+-- 	"scottmckendry/cyberdream.nvim",
+-- 	lazy = false,
+-- 	priority = 1000,
+-- 	config = function()
+-- 		require("cyberdream").setup({
+-- 			variant = "auto",
+-- 			transparent = true,
+-- 			italic_comments = true,
+-- 			hide_fillchars = true,
+-- 			terminal_colors = false,
+-- 			cache = true,
+-- 			borderless_pickers = true,
+-- 			overrides = function(c)
+-- 				return {
+-- 					CursorLine = { bg = c.bg },
+-- 					CursorLineNr = { fg = c.magenta },
+-- 				}
+-- 			end,
+-- 		})
+--
+-- 		vim.cmd("colorscheme cyberdream")
+-- 	end,
+-- }
 {
-	"scottmckendry/cyberdream.nvim",
-	lazy = false,
-	priority = 1000,
-	config = function()
-		require("cyberdream").setup({
-			variant = "auto",
-			transparent = true,
-			italic_comments = true,
-			hide_fillchars = true,
-			terminal_colors = false,
-			cache = true,
-			borderless_pickers = true,
-			overrides = function(c)
-				return {
-					CursorLine = { bg = c.bg },
-					CursorLineNr = { fg = c.magenta },
-				}
-			end,
-		})
+    "rebelot/kanagawa.nvim"
 
-		vim.cmd("colorscheme cyberdream")
-	end,
 }
 })
+vim.cmd("colorscheme kanagawa")
 
 -- Set leader key to space
 vim.g.mapleader = " "
@@ -148,9 +153,9 @@ vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live gr
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
 vim.keymap.set('n', '<leader>en', function()
-	require("telescope.builtin").find_files {
-		cwd = vim.fn.stdpath("config")
-	}
+    require("telescope.builtin").find_files {
+        cwd = vim.fn.stdpath("config")
+    }
 end)
 
 -- Harpoon keymaps
@@ -170,4 +175,4 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.api.nvim_set_keymap('i', 'jk', '<esc>', { noremap = true, silent = true })
 
-vim.cmd("colorscheme cyberdream")
+-- vim.cmd("colorscheme cyberdream")
